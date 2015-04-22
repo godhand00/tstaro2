@@ -2,6 +2,11 @@
 var router = express.Router();
 var amaz = require('./amaz');
 var book = require('./book');
+var user = require('./user');
+var checkout = require('./checkout');
+var excel = require('./excel');
+var doc = require('./doc');
+var stat = require('./stat');
 
 router.get('/amaz/:isbn', amaz.amaz);
 router.get('/amaz_search', amaz.amaz_search);
@@ -13,30 +18,30 @@ router.post('/updbook/:domain', book.updbook);
 router.post('/delbook/:domain', book.delbook);
 router.get('/getbookregno/:domain', book.getbookregno);
 
-router.get('/getusers/:domain', routes.getusers);
-router.post('/reguser/:domain', routes.reguser);
-router.post('/upduser/:domain', routes.upduser);
-router.post('/deluser/:domain', routes.deluser);
-router.post('/login/:domain', routes.login);
+router.get('/getusers/:domain', user.getusers);
+router.post('/reguser/:domain', user.reguser);
+router.post('/upduser/:domain', user.upduser);
+router.post('/deluser/:domain', user.deluser);
+router.post('/login/:domain', user.login);
 
-router.get('/getcheckouts/:domain', routes.getcheckouts);
-router.post('/regcheckout/:domain', routes.regcheckout);
-router.post('/updcheckout/:domain', routes.updcheckout);
-router.post('/delcheckout/:domain', routes.delcheckout);
+router.get('/getcheckouts/:domain', checkout.getcheckouts);
+router.post('/regcheckout/:domain', checkout.regcheckout);
+router.post('/updcheckout/:domain', checkout.updcheckout);
+router.post('/delcheckout/:domain', checkout.delcheckout);
 
-router.get('/listbooksxls/:domain', routes.listbooksxls)
-router.get('/listusersxls/:domain', routes.listusersxls)
-router.get('/listcheckoutsxls/:domain', routes.listcheckoutsxls)
+router.get('/listbooksxls/:domain', excel.listbooksxls)
+router.get('/listusersxls/:domain', excel.listusersxls)
+router.get('/listcheckoutsxls/:domain', excel.listcheckoutsxls)
 
-router.post('/readbooksxls/:domain', routes.readbooksxls)
-router.post('/readusersxls/:domain', routes.readusersxls)
+router.post('/readbooksxls/:domain', excel.readbooksxls)
+router.post('/readusersxls/:domain', excel.readusersxls)
 
-router.get('/getsashikomi/:domain', routes.getsashikomi)
-router.get('/gettanahyoji/:domain', routes.gettanahyoji)
-router.get('/getfont', routes.getfont)
+router.get('/getsashikomi/:domain', doc.getsashikomi)
+router.get('/gettanahyoji/:domain', doc.gettanahyoji)
+router.get('/getfont', doc.getfont)
 
-router.get('/tagsstat/:domain', routes.tagsstat)
-router.get('/ndcsstat/:domain', routes.ndcsstat)
+router.get('/tagsstat/:domain', stat.tagsstat)
+router.get('/ndcsstat/:domain', stat.ndcsstat)
 
 
 module.exports = router;

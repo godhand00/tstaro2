@@ -1,6 +1,7 @@
 ﻿var express = require('express');
 var router = express.Router();
 var myutil = require('./myutil');
+var env = require('./env');
 
 /*
  * get users
@@ -13,7 +14,7 @@ router.getusers = function (req, res) {
     }
     if ($and.length > 0)
         query.$and = $and
-    get('users', query, req, res)
+    myutil.get('users', query, req, res)
 }
 
 router.login = function (req, res) {
@@ -40,21 +41,21 @@ router.login = function (req, res) {
  * register user
  */
 router.reguser = function (req, res) {
-    reg('users', req, res)
+    myutil.reg('users', req, res)
 }
 
 /*
  * update user
  */
 router.upduser = function (req, res) {
-    upd('users', req, res)
+    myutil.upd('users', req, res)
 }
 
 /*
  * delete user
  */
 router.deluser = function (req, res) {
-    del('users', req, res)
+    myutil.del('users', req, res)
 }
 
 module.exports = router;

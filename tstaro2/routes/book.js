@@ -1,9 +1,10 @@
 ﻿var express = require('express');
 var router = express.Router();
 var myutil = require('./myutil');
+var env = require('./env');
 
 router.getbookregno = function (req, res) {
-    var db = getDb(req.params.domain)
+    var db = myutil.getDb(req.params.domain)
     console.log('getbookregno: domain=' + req.params.domain)
     db.open(function (err, db) {
         db.authenticate(env.MONGODB_LOGIN, env.MONGODB_PASSWORD, function (err) {
@@ -63,30 +64,30 @@ router.getbooks = function (req, res) {
         $and.push(ncond)
     if ($and.length > 0)
         query.$and = $and
-    get('books', query, req, res)
+    myutil.get('books', query, req, res)
 }
 
 /*
  * Register book on db
  */
 router.regbook = function (req, res) {
-    req.body.tags = uniqueArray(parseTags(req.body.tags))
-    reg('books', req, res)
+    req.body.tags = uniqueArray(myutil.parseTags(req.body.tags))
+    myutil.reg('books', req, res)
 }
 
 /*
  * Update book on db
  */
 router.updbook = function (req, res) {
-    req.body.tags = uniqueArray(parseTags(req.body.tags))
-    upd('books', req, res)
+    req.body.tags = uniqueArray(myutil.parseTags(req.body.tags))
+    myutil.upd('books', req, res)
 }
 
 /*
  * Delete book from db
  */
 router.delbook = function (req, res) {
-    del('books', req, res)
+    myutil.del('books', req, res)
 }
 
 module.exports = router;

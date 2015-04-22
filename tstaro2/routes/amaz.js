@@ -1,5 +1,6 @@
 ﻿var express = require('express');
 var router = express.Router();
+var env = require('./env');
 
 router.amaz = function (req, res) {
     var util = require('util'),

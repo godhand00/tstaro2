@@ -1622,11 +1622,16 @@
     <Compile Include="routes\amaz.js" />
     <Compile Include="routes\api.js" />
     <Compile Include="routes\book.js" />
+    <Compile Include="routes\checkout.js" />
     <Compile Include="routes\config.js" />
+    <Compile Include="routes\doc.js" />
+    <Compile Include="routes\env.js" />
+    <Compile Include="routes\excel.js" />
     <Compile Include="routes\index.js" />
-    <Compile Include="routes\user.js" />
     <Compile Include="bin\www" />
     <Compile Include="routes\myutil.js" />
+    <Compile Include="routes\stat.js" />
+    <Compile Include="routes\user.js" />
     <Content Include="package.json" />
     <Content Include="public\dev\.sencha\app\app.defaults.json" />
     <Content Include="public\dev\.sencha\app\bootstrap-impl.xml" />
