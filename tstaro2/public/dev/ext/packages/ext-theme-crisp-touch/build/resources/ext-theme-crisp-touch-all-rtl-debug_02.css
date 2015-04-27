@@ -1,35 +1,3 @@
-  .x-panel-header-light-framed-horizontal .x-panel-header-light-framed-tab-bar {
-    margin-top: -5px;
-    margin-bottom: -5px; }
-
-/* line 294, ../../../ext-theme-neutral/sass/src/panel/Panel.scss */
-.x-panel-header-light-framed-horizontal.x-header-noborder {
-  padding: 6px 16px 5px 16px; }
-  /* line 298, ../../../ext-theme-neutral/sass/src/panel/Panel.scss */
-  .x-panel-header-light-framed-horizontal.x-header-noborder .x-panel-header-light-framed-tab-bar {
-    margin-top: -6px;
-    margin-bottom: -5px; }
-
-/* line 306, ../../../ext-theme-neutral/sass/src/panel/Panel.scss */
-.x-panel-header-light-framed-vertical {
-  padding: 15px 5px 15px 5px; }
-  /* line 310, ../../../ext-theme-neutral/sass/src/panel/Panel.scss */
-  .x-panel-header-light-framed-vertical .x-panel-header-light-framed-tab-bar {
-    margin-right: -5px;
-    margin-left: -5px; }
-
-/* line 318, ../../../ext-theme-neutral/sass/src/panel/Panel.scss */
-.x-panel-header-light-framed-vertical.x-header-noborder {
-  padding: 16px 6px 16px 5px; }
-  /* line 322, ../../../ext-theme-neutral/sass/src/panel/Panel.scss */
-  .x-panel-header-light-framed-vertical.x-header-noborder .x-panel-header-light-framed-tab-bar {
-    margin-right: -6px;
-    margin-left: -5px; }
-
-/* line 331, ../../../ext-theme-neutral/sass/src/panel/Panel.scss */
-.x-rtl.x-panel-header-light-framed-vertical {
-  padding: 15px 5px 15px 5px; }
-  /* line 335, ../../../ext-theme-neutral/sass/src/panel/Panel.scss */
   .x-rtl.x-panel-header-light-framed-vertical .x-panel-header-light-framed-tab-bar {
     margin-left: -5px;
     margin-right: -5px; }
@@ -53,17 +21,6 @@
   .x-panel-header-title-light-framed > .x-title-text-light-framed {
     text-transform: none;
     padding: 0; }
-    /* line 374, ../../../ext-theme-neutral/sass/src/panel/Panel.scss */
-    .x-panel-header-title-light-framed > .x-title-text-light-framed:after {
-      content: 'Ext JS Trial';
-      position: absolute;
-      top: 0;
-      right: 0;
-      color: #999999; }
-    /* line 385, ../../../ext-theme-neutral/sass/src/panel/Panel.scss */
-    .x-panel-header-title-light-framed > .x-title-text-light-framed.x-rtl:after {
-      right: auto;
-      left: 0; }
   /* line 412, ../../../ext-theme-neutral/sass/src/panel/Panel.scss */
   .x-panel-header-title-light-framed > .x-title-icon-wrap-light-framed.x-title-icon-top {
     height: 22px;

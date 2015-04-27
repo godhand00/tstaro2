@@ -1,12 +1,12 @@
 ﻿var express = require('express');
 var router = express.Router();
-var amaz = require('./amaz');
-var book = require('./book');
-var user = require('./user');
-var checkout = require('./checkout');
-var excel = require('./excel');
-var doc = require('./doc');
-var stat = require('./stat');
+var amaz = require('./modules/amaz');
+var book = require('./modules/book');
+var user = require('./modules/user');
+var checkout = require('./modules/checkout');
+var excel = require('./modules/excel');
+var doc = require('./modules/doc');
+var stat = require('./modules/stat');
 
 router.get('/amaz/:isbn', amaz.amaz);
 router.get('/amaz_search', amaz.amaz_search);

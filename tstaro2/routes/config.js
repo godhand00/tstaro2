@@ -3,8 +3,8 @@ var router = express.Router();
 var http = require('http');
 var querystring = require('querystring');
 var mongodb = require('mongodb');
-var myutil = require('./myutil.js');
-var env = require('./env');
+var myutil = require('./modules/myutil.js');
+var env = require('./modules/env');
 
 /*
  * Create Index

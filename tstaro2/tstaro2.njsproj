@@ -1619,19 +1619,19 @@
     <Compile Include="public\dev\ext\src\ZIndexManager.js" />
     <Compile Include="public\dev\sass\example\custom.js" />
     <Compile Include="public\dev\sass\example\render.js" />
-    <Compile Include="routes\amaz.js" />
+    <Compile Include="routes\modules\amaz.js" />
     <Compile Include="routes\api.js" />
-    <Compile Include="routes\book.js" />
-    <Compile Include="routes\checkout.js" />
+    <Compile Include="routes\modules\book.js" />
+    <Compile Include="routes\modules\checkout.js" />
     <Compile Include="routes\config.js" />
-    <Compile Include="routes\doc.js" />
-    <Compile Include="routes\env.js" />
-    <Compile Include="routes\excel.js" />
+    <Compile Include="routes\modules\doc.js" />
+    <Compile Include="routes\modules\env.js" />
+    <Compile Include="routes\modules\excel.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="bin\www" />
-    <Compile Include="routes\myutil.js" />
-    <Compile Include="routes\stat.js" />
-    <Compile Include="routes\user.js" />
+    <Compile Include="routes\modules\myutil.js" />
+    <Compile Include="routes\modules\stat.js" />
+    <Compile Include="routes\modules\user.js" />
     <Content Include="data\CODE39.ttf.zip" />
     <Content Include="data\ndc.json" />
     <Content Include="data\sudako\sashikomi.docx" />
@@ -1684,7 +1684,6 @@
     <Content Include="public\dev\ext\.sencha\package\bootstrap-impl.xml" />
     <Content Include="public\dev\ext\.sencha\package\build-impl.xml" />
     <Content Include="public\dev\ext\.sencha\package\build.properties" />
-    <Content Include="public\dev\ext\.sencha\package\cert.json" />
     <Content Include="public\dev\ext\.sencha\package\codegen.json" />
     <Content Include="public\dev\ext\.sencha\package\defaults.properties" />
     <Content Include="public\dev\ext\.sencha\package\find-cmd-impl.xml" />
@@ -8791,7 +8790,6 @@
     <Content Include="public\dev\ext\src\ux\statusbar\images\loading.gif" />
     <Content Include="public\dev\ext\src\ux\statusbar\images\saved.png" />
     <Content Include="public\dev\ext\src\ux\statusbar\images\saving.gif" />
-    <Content Include="public\dev\ext\version.properties" />
     <Content Include="public\dev\index.html" />
     <Content Include="public\dev\Readme.md" />
     <Content Include="public\dev\resources\Readme.md" />
@@ -8853,8 +8851,6 @@
     <Folder Include="bin\" />
     <Folder Include="data\" />
     <Folder Include="data\sudako\" />
-    <Folder Include="python_modules\" />
-    <Folder Include="public\" />
     <Folder Include="public\dev\" />
     <Folder Include="public\dev\.sencha\" />
     <Folder Include="public\dev\.sencha\app\" />
@@ -10226,12 +10222,15 @@
     <Folder Include="public\dev\sass\example\" />
     <Folder Include="public\dev\sass\src\" />
     <Folder Include="public\dev\sass\var\" />
+    <Folder Include="python_modules\" />
+    <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />
     <Folder Include="public\stylesheets\" />
     <Folder Include="python_modules\site-packages\" />
     <Folder Include="python_modules\site-packages\pyExcelerator\" />
     <Folder Include="routes\" />
+    <Folder Include="routes\modules\" />
     <Folder Include="views\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->

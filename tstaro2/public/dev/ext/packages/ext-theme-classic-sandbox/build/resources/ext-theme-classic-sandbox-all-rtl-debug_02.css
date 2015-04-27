@@ -1,34 +1,3 @@
-/* line 1, ../../../ext-theme-neutral/sass/src/layout/container/Form.scss */
-.x5-form-layout-wrap {
-  border-spacing: 5px; }
-
-/* line 1, ../../../ext-theme-neutral/sass/src/resizer/Resizer.scss */
-.x5-resizable-handle {
-  position: absolute;
-  z-index: 100;
-  font-size: 1px;
-  line-height: 6px;
-  overflow: hidden;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  background-color: #fff; }
-
-/* line 17, ../../../ext-theme-neutral/sass/src/resizer/Resizer.scss */
-.x5-collapsed .x5-resizable-handle {
-  display: none; }
-
-/* line 21, ../../../ext-theme-neutral/sass/src/resizer/Resizer.scss */
-.x5-resizable-handle-north {
-  cursor: n-resize; }
-
-/* line 24, ../../../ext-theme-neutral/sass/src/resizer/Resizer.scss */
-.x5-resizable-handle-south {
-  cursor: s-resize; }
-
-/* line 27, ../../../ext-theme-neutral/sass/src/resizer/Resizer.scss */
-.x5-resizable-handle-east {
-  cursor: e-resize; }
-
 /* line 30, ../../../ext-theme-neutral/sass/src/resizer/Resizer.scss */
 .x5-resizable-handle-west {
   cursor: w-resize; }
