@@ -38,6 +38,8 @@
     <Compile Include="public\dev\.sencha\app\microloader\testing.js" />
     <Compile Include="public\dev\app.js" />
     <Compile Include="public\dev\app\Application.js" />
+    <Compile Include="public\dev\app\model\Book.js" />
+    <Compile Include="public\dev\app\store\Books.js" />
     <Compile Include="public\dev\app\view\main\Main.js" />
     <Compile Include="public\dev\app\view\main\MainController.js" />
     <Compile Include="public\dev\app\view\main\MainModel.js" />

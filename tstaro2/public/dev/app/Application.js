@@ -10,6 +10,7 @@ Ext.define('tstaro2.Application', {
 
     stores: [
         // TODO: add global / shared stores here
+        'Books'
     ],
     
     launch: function () {
