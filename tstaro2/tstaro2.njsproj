@@ -31,11 +31,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
-    <Compile Include="public\javascripts\JSXTransformer.js" />
-    <Compile Include="public\javascripts\react-with-addons.js" />
-    <Compile Include="public\javascripts\react-with-addons.min.js" />
-    <Compile Include="public\javascripts\react.js" />
-    <Compile Include="public\javascripts\react.min.js" />
     <Compile Include="routes\modules\amaz.js" />
     <Compile Include="routes\api.js" />
     <Compile Include="routes\modules\book.js" />
