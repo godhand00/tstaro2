@@ -44,7 +44,6 @@
     <Compile Include="routes\modules\myutil.js" />
     <Compile Include="routes\modules\stat.js" />
     <Compile Include="routes\modules\user.js" />
-    <Compile Include="template\indexForBrowser.js" />
     <Content Include="data\CODE39.ttf.zip" />
     <Content Include="data\ndc.json" />
     <Content Include="data\sudako\sashikomi.docx" />
@@ -105,7 +104,6 @@
     <Folder Include="bin\" />
     <Folder Include="data\" />
     <Folder Include="data\sudako\" />
-    <Folder Include="template\" />
     <Folder Include="python_modules\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
