@@ -1,3 +1,8 @@
+var data = [
+    { author: "Pete Hunt", text: "This is one comment" },
+    { author: "Jordan Walke", text: "This is *another* comment" }
+];
+
 var Comment = React.createClass( {displayName: "Comment",
     render: function () {
         return (
@@ -11,12 +16,13 @@ var Comment = React.createClass( {displayName: "Comment",
 
 var CommentList = React.createClass({displayName: "CommentList",
     render: function() {
-        return (
-            React.createElement("div", {classname: "commentList"}, 
-                React.createElement(Comment, {author: "Pete Hunt"}, "This is one comment"), 
-                React.createElement(Comment, {author: "Jordan Walke"}, "This is *another* comment")
-            )
-        );
+        var CommentNodes = this.props.data.map(function (comment) {
+            return (
+                React.createElement(Comment, {author: comment.author}, 
+                    comment.text
+                )
+            );
+        });
     }
 });
 
@@ -35,7 +41,7 @@ var CommentBox = React.createClass({displayName: "CommentBox",
         return (
             React.createElement("div", {classname: "commentBox"}, 
                 React.createElement("h1", null, "Comments"), 
-                React.createElement(CommentList, null), 
+                React.createElement(CommentList, {data: this.props.data}), 
                 React.createElement(CommentForm, null)
             )
         );
@@ -43,6 +49,6 @@ var CommentBox = React.createClass({displayName: "CommentBox",
 });
 
 React.render(
-    React.createElement(CommentBox, null),
+    React.createElement(CommentBox, {data: data}),
     document.getElementById('content')
 );
