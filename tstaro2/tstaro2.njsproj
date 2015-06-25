@@ -44,6 +44,7 @@
     <Compile Include="routes\modules\myutil.js" />
     <Compile Include="routes\modules\stat.js" />
     <Compile Include="routes\modules\user.js" />
+    <Compile Include="public\javascripts\src\test.js" />
     <Content Include="data\CODE39.ttf.zip" />
     <Content Include="data\ndc.json" />
     <Content Include="data\sudako\sashikomi.docx" />
@@ -114,7 +115,7 @@
     <Folder Include="routes\" />
     <Folder Include="routes\modules\" />
     <Folder Include="views\" />
-    <Folder Include="views\src\" />
+    <Folder Include="public\javascripts\src\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
