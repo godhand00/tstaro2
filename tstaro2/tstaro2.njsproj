@@ -44,14 +44,14 @@
     <Compile Include="routes\modules\myutil.js" />
     <Compile Include="routes\modules\stat.js" />
     <Compile Include="routes\modules\user.js" />
-    <Compile Include="public\javascripts\src\test.js" />
+    <Compile Include="src\jsx\app.js" />
     <Content Include="data\CODE39.ttf.zip" />
     <Content Include="data\ndc.json" />
     <Content Include="data\sudako\sashikomi.docx" />
     <Content Include="data\sudako\tanahyoji.doc" />
     <Content Include="data\tags.json" />
     <Content Include="package.json" />
-    <Content Include="public\stylesheets\style.styl" />
+    <Content Include="src\styl\style.styl" />
     <Content Include="python_modules\makexls.py" />
     <Content Include="python_modules\site-packages\pyExcelerator\antlr.py" />
     <Content Include="python_modules\site-packages\pyExcelerator\antlr.pyc" />
@@ -105,6 +105,7 @@
     <Folder Include="bin\" />
     <Folder Include="data\" />
     <Folder Include="data\sudako\" />
+    <Folder Include="src\" />
     <Folder Include="python_modules\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
@@ -114,8 +115,9 @@
     <Folder Include="python_modules\site-packages\pyExcelerator\" />
     <Folder Include="routes\" />
     <Folder Include="routes\modules\" />
+    <Folder Include="src\jsx\" />
+    <Folder Include="src\styl\" />
     <Folder Include="views\" />
-    <Folder Include="public\javascripts\src\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
