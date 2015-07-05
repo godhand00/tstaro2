@@ -106,7 +106,7 @@ router.reg = function (colname, req, res) {
                     if (!err)
                         res.send(doc)
                     else
-                        res.send(500, err)
+                        res.status(500).send(err)
                 })
             })
         })
@@ -125,7 +125,7 @@ router.upd = function (colname, req, res) {
                     if (!err)
                         res.send(req.body)
                     else
-                        res.send(500, err)
+                        res.status(500).send(err)
                 })
             })
         })

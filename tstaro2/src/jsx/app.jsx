@@ -74,7 +74,8 @@ var CommentBox = React.createClass({
             type: 'POST',
             data: comment
         }).done(function(data) {
-            self.setState({data: data});
+			self.loadCommentFromServer();
+            //self.setState({data: data});
         }).fail(function(xhr, status, err) {
             console.error(self.props.url, status, err.toString());
         });

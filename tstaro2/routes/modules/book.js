@@ -71,7 +71,7 @@ router.getbooks = function (req, res) {
  * Register book on db
  */
 router.regbook = function (req, res) {
-    req.body.tags = uniqueArray(myutil.parseTags(req.body.tags))
+    req.body.tags = myutil.uniqueArray(myutil.parseTags(req.body.tags))
     myutil.reg('books', req, res)
 }
 
@@ -79,7 +79,7 @@ router.regbook = function (req, res) {
  * Update book on db
  */
 router.updbook = function (req, res) {
-    req.body.tags = uniqueArray(myutil.parseTags(req.body.tags))
+    req.body.tags = myutil.uniqueArray(myutil.parseTags(req.body.tags))
     myutil.upd('books', req, res)
 }
 

@@ -18,6 +18,11 @@ router.post('/updbook/:domain', book.updbook);
 router.post('/delbook/:domain', book.delbook);
 router.get('/getbookregno/:domain', book.getbookregno);
 
+router.get('/books/:domain', book.getbooks);
+router.post('/books/:domain', book.regbook);
+router.put('/books/:domain', book.updbook);
+router.delete('/books/:domain', book.delbook);
+
 router.get('/getusers/:domain', user.getusers);
 router.post('/reguser/:domain', user.reguser);
 router.post('/upduser/:domain', user.upduser);

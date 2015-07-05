@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="gulpfile.js" />
     <Compile Include="routes\modules\amaz.js" />
     <Compile Include="routes\api.js" />
     <Compile Include="routes\modules\book.js" />
@@ -44,7 +45,8 @@
     <Compile Include="routes\modules\myutil.js" />
     <Compile Include="routes\modules\stat.js" />
     <Compile Include="routes\modules\user.js" />
-    <Compile Include="src\jsx\app.js" />
+    <Compile Include="src\jsx\app.jsx" />
+    <Compile Include="webpack.config.js" />
     <Content Include="data\CODE39.ttf.zip" />
     <Content Include="data\ndc.json" />
     <Content Include="data\sudako\sashikomi.docx" />
