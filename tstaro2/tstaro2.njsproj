@@ -33,6 +33,9 @@
     <Compile Include="app.js" />
     <Compile Include="gulpfile.js" />
     <Compile Include="gulp\config.js" />
+    <Compile Include="gulp\tasks\build.js" />
+    <Compile Include="gulp\tasks\stylus.js" />
+    <Compile Include="gulp\tasks\watch.js" />
     <Compile Include="gulp\tasks\webpack.js" />
     <Compile Include="routes\modules\amaz.js" />
     <Compile Include="routes\api.js" />
