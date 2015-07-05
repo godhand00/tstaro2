@@ -32,6 +32,8 @@
   <ItemGroup>
     <Compile Include="app.js" />
     <Compile Include="gulpfile.js" />
+    <Compile Include="gulp\config.js" />
+    <Compile Include="gulp\tasks\webpack.js" />
     <Compile Include="routes\modules\amaz.js" />
     <Compile Include="routes\api.js" />
     <Compile Include="routes\modules\book.js" />
@@ -107,6 +109,8 @@
     <Folder Include="bin\" />
     <Folder Include="data\" />
     <Folder Include="data\sudako\" />
+    <Folder Include="gulp\" />
+    <Folder Include="gulp\tasks\" />
     <Folder Include="src\" />
     <Folder Include="python_modules\" />
     <Folder Include="public\" />
