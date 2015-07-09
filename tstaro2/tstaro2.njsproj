@@ -51,13 +51,17 @@
     <Compile Include="routes\modules\stat.js" />
     <Compile Include="routes\modules\user.js" />
     <Compile Include="src\jsx\app.jsx" />
-    <Compile Include="webpack.config.js" />
     <Content Include="data\CODE39.ttf.zip" />
     <Content Include="data\ndc.json" />
     <Content Include="data\sudako\sashikomi.docx" />
     <Content Include="data\sudako\tanahyoji.doc" />
     <Content Include="data\tags.json" />
     <Content Include="package.json" />
+    <Content Include="src\jsx\components\BaseComponent.jsx" />
+    <Content Include="src\jsx\components\Comment.jsx" />
+    <Content Include="src\jsx\components\CommentBox.jsx" />
+    <Content Include="src\jsx\components\CommentForm.jsx" />
+    <Content Include="src\jsx\components\CommentList.jsx" />
     <Content Include="src\styl\style.styl" />
     <Content Include="python_modules\makexls.py" />
     <Content Include="python_modules\site-packages\pyExcelerator\antlr.py" />
@@ -125,6 +129,7 @@
     <Folder Include="routes\" />
     <Folder Include="routes\modules\" />
     <Folder Include="src\jsx\" />
+    <Folder Include="src\jsx\components\" />
     <Folder Include="src\styl\" />
     <Folder Include="views\" />
   </ItemGroup>

@@ -12,10 +12,10 @@ router.get('/amaz/:isbn', amaz.amaz);
 router.get('/amaz_search', amaz.amaz_search);
 router.get('/ndl/:isbn', amaz.ndl);
 
-router.get('/getbooks/:domain', book.getbooks);
-router.post('/regbook/:domain', book.regbook);
-router.post('/updbook/:domain', book.updbook);
-router.post('/delbook/:domain', book.delbook);
+//router.get('/getbooks/:domain', book.getbooks);
+//router.post('/regbook/:domain', book.regbook);
+//router.post('/updbook/:domain', book.updbook);
+//router.post('/delbook/:domain', book.delbook);
 router.get('/getbookregno/:domain', book.getbookregno);
 
 router.get('/books/:domain', book.getbooks);

@@ -21,7 +21,7 @@ module.exports = {
         devtool: 'inline-source-map',
         module: {
             loaders: [
-                { test: /\.jsx$/, loader: 'jsx-loader' }
+                { test: /\.jsx$/, loader: 'babel-loader' }
             ]
         },
         resolve: {
