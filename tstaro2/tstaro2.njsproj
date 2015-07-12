@@ -58,10 +58,10 @@
     <Content Include="data\tags.json" />
     <Content Include="package.json" />
     <Content Include="src\jsx\components\BaseComponent.jsx" />
-    <Content Include="src\jsx\components\Comment.jsx" />
-    <Content Include="src\jsx\components\CommentBox.jsx" />
-    <Content Include="src\jsx\components\CommentForm.jsx" />
-    <Content Include="src\jsx\components\CommentList.jsx" />
+    <Content Include="src\jsx\components\Checkout.jsx" />
+    <Content Include="src\jsx\components\CheckoutBox.jsx" />
+    <Content Include="src\jsx\components\CheckoutForm.jsx" />
+    <Content Include="src\jsx\components\CheckoutList.jsx" />
     <Content Include="src\styl\style.styl" />
     <Content Include="python_modules\makexls.py" />
     <Content Include="python_modules\site-packages\pyExcelerator\antlr.py" />

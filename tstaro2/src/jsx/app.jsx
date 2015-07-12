@@ -1,6 +1,6 @@
-﻿import CommentBox from './components/CommentBox.jsx'
+﻿import CheckoutBox from './components/CheckoutBox.jsx'
 
 React.render(
-    <CommentBox url="/api/books/sudako" />,
+    <CheckoutBox url="/api/books/sudako" />,
     document.getElementById('content')
 );
