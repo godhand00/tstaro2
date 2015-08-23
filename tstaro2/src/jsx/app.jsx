@@ -1,6 +1,8 @@
-﻿import CheckoutBox from './components/CheckoutBox.jsx'
+﻿import TopMenu from './components/TopMenu.jsx'
+import MenuUtil from './utils/MenuUtil.jsx'
 
 React.render(
-    <CheckoutBox url="/api/books/sudako" />,
-    document.getElementById('content')
+    <TopMenu />,
+    document.getElementById('header')
 );
+MenuUtil.handleSelect(0);
