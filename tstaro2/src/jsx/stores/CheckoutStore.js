@@ -1,10 +1,11 @@
+import HttpUtil from '../utils/HttpUtil';
 ﻿var alt = require('../alt');
 var CheckoutActions = require('../actions/CheckoutActions');
 var CheckoutSource = require('../sources/CheckoutSource');
 
 class CheckoutStore {
     constructor() {
-        this.checkouts = [];
+        this.checkouts = HttpUtil.emptyResults();
         this.errorMessage = null;
 
         this.bindListeners({
@@ -26,7 +27,7 @@ class CheckoutStore {
     }
 
     handleFetchCheckouts() {
-        this.checkouts = [];
+        this.checkouts = HttpUtil.emptyResults();
     }
 
     handleCheckoutsFailed(errorMessage) {

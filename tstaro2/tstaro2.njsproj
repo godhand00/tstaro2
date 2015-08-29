@@ -56,6 +56,7 @@
     <Compile Include="src\jsx\components\TopMenu.jsx" />
     <Compile Include="src\jsx\stores\CheckoutStore.js" />
     <Compile Include="src\jsx\sources\CheckoutSource.js" />
+    <Compile Include="src\jsx\utils\HttpUtil.js" />
     <Content Include="data\CODE39.ttf.zip" />
     <Content Include="data\ndc.json" />
     <Content Include="data\sudako\sashikomi.docx" />

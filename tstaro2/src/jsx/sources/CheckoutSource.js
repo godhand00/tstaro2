@@ -1,3 +1,4 @@
+import HttpUtil from '../utils/HttpUtil'
 var CheckoutActions = require('../actions/CheckoutActions');﻿
 
 var CheckoutSource = {
@@ -5,22 +6,7 @@ var CheckoutSource = {
         return {
             remote() {
                 const url = "/api/checkouts/sudako";
-                return new Promise((resolve, reject) => {
-                    let xhr = new XMLHttpRequest();
-                    xhr.open('GET', url, true);
-                    xhr.onload = () => {
-                        if (xhr.readyState === 4 && xhr.status === 200) {
-                            var data = JSON.parse(xhr.response);
-                            resolve(data["results"]);
-                        } else {
-                            reject(new Error(xhr.statusText));
-                        }
-                    };
-                    xhr.onerror = () => {
-                        reject(new Error(xhr.statusText));
-                    };
-                    xhr.send(null);
-                });
+                return new Promise((resolve, reject) => HttpUtil.get(url, resolve, reject));
             },
             local() {
                 return null;

@@ -2,7 +2,7 @@ import Checkout from './Checkout.jsx'
 
 export default class CheckoutList {
     render() {
-        var checkoutNodes = this.props.checkouts.map((checkout) => {
+        var checkoutNodes = this.props.checkouts.results.map((checkout) => {
             return (
                 <Checkout author={checkout.Author}>
                     {checkout.Title}
