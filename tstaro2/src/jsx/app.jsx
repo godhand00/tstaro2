@@ -1,8 +1,11 @@
-﻿import TopMenu from './components/TopMenu.jsx'
-import MenuUtil from './utils/MenuUtil.jsx'
+import TopMenu from './components/TopMenu.jsx'
+import MainMenu from './components/MainMenu.jsx'
 
 React.render(
     <TopMenu />,
     document.getElementById('header')
 );
-MenuUtil.handleSelect(0);
+React.render(
+    <MainMenu />,
+    document.getElementById('content')
+);

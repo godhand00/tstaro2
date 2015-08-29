@@ -1,12 +1,13 @@
-﻿import BaseComponent from './BaseComponent.jsx'
-import MenuUtil from '../utils/MenuUtil.jsx'
+import MainMenu from './MainMenu.jsx'
 
-export default class TopMenu extends BaseComponent {
+export default class TopMenu {
     render() {
         return (<nav className="navbar navbar-default">
                     <div className="container-fluid">
                         <div className="navbar-header">
-                            <a className="navbar-brand" href="#" onClick={MenuUtil.handleSelect.bind(null, 0)}>
+                            <a className="navbar-brand" href="#" onClick={
+                                () => React.render(<MainMenu />, document.getElementById('content'))
+                            }>
                                 <img alt="Brand" src="/images/favicon.png"/>
                             </a>
                         </div>

@@ -1,6 +1,4 @@
-﻿import BaseComponent from './BaseComponent.jsx'
-
-export default class Checkout extends BaseComponent {
+export default class Checkout {
     render() {
         return (
 			<tr>
