@@ -2,18 +2,26 @@ import Checkout from './Checkout.jsx'
 
 export default class CheckoutList {
     render() {
-        var checkoutNodes = this.props.checkouts.results.map((checkout) => {
+        if (this.props.errorMessage) {
+			return (
+        		<div>{this.props.errorMessage}</div>
+      		);
+		}
+        var checkoutNodes = this.props.checkouts.results.map((checkout, index) => {
             return (
-                <Checkout author={checkout.Author}>
-                    {checkout.Title}
-                </Checkout>
+                <Checkout
+                    index={index + 1}
+                    author={checkout.Author}
+                    title={checkout.Title}
+                    from_date={checkout.from_date}
+                />
             );
         });
         return (
 			<div>
 				<table className="table table-striped table-bordered table-condensed table-hover">
 					<thead>
-						<tr><th>Author</th><th>Title</th></tr>
+						<tr><th></th><th>著者</th><th>タイトル</th><th>貸出日</th></tr>
 					</thead>
 					<tbody>
 						{checkoutNodes}

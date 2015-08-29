@@ -12,11 +12,4 @@
         xhr.onerror = () => reject(new Error(xhr.statusText));
         xhr.send(null);
     }
-
-    static emptyResults() {
-        return {
-            "results": [],
-            "totalCount": 0
-        };
-    }
 }

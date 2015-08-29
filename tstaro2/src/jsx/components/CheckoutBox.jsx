@@ -10,12 +10,7 @@ export default class CheckoutBox {
     }
 
     render() {
-		if (this.props.errorMessage) {
-			return (
-        		<div>{this.props.errorMessage}</div>
-      		);
-		}
-		if (CheckoutStore.isLoading()) {
+        if (CheckoutStore.isLoading()) {
       		return (
         		<div>
           			<img src="/images/ajax-loader.gif" />
@@ -24,7 +19,7 @@ export default class CheckoutBox {
     	}
         return (
             <div>
-                <h1>本の貸出</h1>
+                <h1>貸出・返却</h1>
 				<CheckoutForm />
 				<AltContainer store={CheckoutStore}>
 					<CheckoutList />
