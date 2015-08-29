@@ -50,10 +50,14 @@
     <Compile Include="routes\modules\myutil.js" />
     <Compile Include="routes\modules\stat.js" />
     <Compile Include="routes\modules\user.js" />
+    <Compile Include="src\jsx\actions\BookActions.js" />
     <Compile Include="src\jsx\actions\CheckoutActions.js" />
+    <Compile Include="src\jsx\actions\UserActions.js" />
     <Compile Include="src\jsx\alt.js" />
     <Compile Include="src\jsx\app.jsx" />
     <Compile Include="src\jsx\components\TopMenu.jsx" />
+    <Compile Include="src\jsx\sources\BookSource.js" />
+    <Compile Include="src\jsx\sources\UserSource.js" />
     <Compile Include="src\jsx\stores\CheckoutStore.js" />
     <Compile Include="src\jsx\sources\CheckoutSource.js" />
     <Compile Include="src\jsx\utils\HttpUtil.js" />
