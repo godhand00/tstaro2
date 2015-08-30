@@ -5,6 +5,9 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>tstaro2</Name>
     <RootNamespace>tstaro2</RootNamespace>
+    <EnableTypeScript>true</EnableTypeScript>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -72,6 +75,7 @@
     <Content Include="src\jsx\components\CheckoutBox.jsx" />
     <Content Include="src\jsx\components\CheckoutForm.jsx" />
     <Content Include="src\jsx\components\CheckoutList.jsx" />
+    <Content Include="src\jsx\components\Footer.jsx" />
     <Content Include="src\jsx\components\MainMenu.jsx" />
     <Content Include="src\styl\style.styl" />
     <Content Include="python_modules\makexls.py" />
