@@ -2,15 +2,16 @@ import CheckoutList from './CheckoutList.jsx'
 import CheckoutForm from './CheckoutForm.jsx'
 ﻿var AltContainer = require('alt/AltContainer');
 var CheckoutStore = require('../stores/CheckoutStore');
-var CheckoutActions = require('../actions/CheckoutActions');
+var UserStore = require('../stores/UserStore');
+var BookStore = require('../stores/BookStore');
 
 export default class CheckoutBox {
     componentDidMount() {
-        CheckoutStore.fetchCheckouts();
+        //CheckoutStore.fetchCheckouts();
     }
 
     render() {
-        if (CheckoutStore.isLoading()) {
+        if (CheckoutStore.isLoading() || UserStore.isLoading()) {
       		return (
         		<div>
           			<img src="/images/ajax-loader.gif" />
@@ -20,7 +21,15 @@ export default class CheckoutBox {
         return (
             <div>
                 <h1>貸出・返却</h1>
-				<CheckoutForm />
+                <AltContainer stores={
+                    {
+                        Users: UserStore,
+                        Books: BookStore,
+                        Checkouts: CheckoutStore
+                    }
+                }>
+                    <CheckoutForm />
+                </AltContainer>
 				<AltContainer store={CheckoutStore}>
 					<CheckoutList />
 				</AltContainer>

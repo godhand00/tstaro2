@@ -4,7 +4,7 @@ var CheckoutActions = require('../actions/CheckoutActions');﻿
 var CheckoutSource = {
     fetchCheckouts() {
         return {
-            remote() {
+            remote(store, account, regno) {
                 let url = "/api/checkouts/sudako";
                 let cond = "";
                 if (account) {
@@ -17,11 +17,11 @@ var CheckoutSource = {
                         cond += "&";
                     cond += "regno=" + regno;
                 }
-                if (!cond)
+                if (cond)
                     url += "?" + cond;
                 return new Promise((resolve, reject) => HttpUtil.get(url, resolve, reject));
             },
-            local() {
+            local(store, account) {
                 return null;
             },
             success: CheckoutActions.updateCheckouts,

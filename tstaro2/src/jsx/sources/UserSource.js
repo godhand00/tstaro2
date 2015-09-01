@@ -4,11 +4,19 @@ var UserActions = require('../actions/UserActions');﻿
 var UserSource = {
     fetchUsers() {
         return {
-            remote() {
-                const url = "/api/users/sudako";
+            remote(store, account) {
+                let url = "/api/users/sudako";
+                let cond = "";
+                if (account) {
+                    if (cond)
+                        cond += "&";
+                    cond += "account=" + account;
+                }
+                if (cond)
+                    url += "?" + cond;
                 return new Promise((resolve, reject) => HttpUtil.get(url, resolve, reject));
             },
-            local() {
+            local(store, account) {
                 return null;
             },
             success: UserActions.updateUsers,
