@@ -8,6 +8,6 @@
 
     static jsonDateToDate(value) {
         var d = new Date(value);
-        return d.toISOString("yyyy-MM-dd").substring(0, 10);
+        return d.toISOString().substring(0, 10);
     }
 }

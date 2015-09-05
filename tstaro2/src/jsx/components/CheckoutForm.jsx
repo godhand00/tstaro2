@@ -1,26 +1,13 @@
 var CheckoutStore = require('../stores/CheckoutStore');
-var UserStore = require('../stores/UserStore');
-var BookStore = require('../stores/BookStore');
 
 export default class CheckoutForm {
     render() {
         var userName = "";
         var bookName = "";
-        if (this.props.Users.users.totalCount > 0)
-            userName = this.props.Users.users.results[0].name;
-        if (this.props.Books.books.totalCount > 0)
-            bookName = this.props.Books.books.results[0].Title;
-        if (this.props.Users.users.totalCount > 0 ) {
-            if (this.props.Books.books.totalCount == 0)
-                React.findDOMNode(this.refs.regno).focus();
-            else {
-                if (this.props.Checkouts.checkouts.totalCount == 0)
-                    React.findDOMNode(this.refs.checkout).focus();
-                else
-                    React.findDOMNode(this.refs.checkin).focus();
-            }
-        } else
-            React.findDOMNode(this.refs.account).focus();
+        if (this.props.curretUser != null)
+            userName = this.props.currentUser.name;
+        if (this.props.currentBook != null)
+            bookName = this.props.currentBook.Title;
 
         return (
 			<div className="container">
@@ -63,17 +50,15 @@ export default class CheckoutForm {
         {
             var account = React.findDOMNode(this.refs.account).value.trim();
             var regno = React.findDOMNode(this.refs.regno).value.trim();
-            if (!account) {
-                return;
-            }
-            UserStore.fetchUsers(account);
-            if (!regno) {
-                CheckoutStore.fetchCheckouts(account);
-            }
-            else {
-                BookStore.fetchBooks(regno);
+            if (account)
+                CheckoutStore.fetchCurrentUser(account);
+            if (regno)
+                CheckoutStore.fetchCurrentBook(regno);
+
+            if (account)
                 CheckoutStore.fetchCheckouts(account, regno);
-            }
+            if (account && regno)
+                CheckoutStore.fetchBookCheckout(account, regno);
         }
     }
 
