@@ -42,7 +42,7 @@ class CheckoutActions {
 
     // BookCheckout
     updateBookCheckout(bookCheckout) {
-        this.dispatch(checkout);
+        this.dispatch(bookCheckout);
     }
 
     fetchBookCheckout() {
@@ -50,6 +50,19 @@ class CheckoutActions {
     }
 
     bookCheckoutFailed(errorMessage) {
+        this.dispatch(errorMessage);
+    }
+
+    // registerCheckout
+    completeRegisterCheckout(message) {
+        this.dispatch(message);
+    }
+
+    registerCheckout() {
+        this.dispatch();
+    }
+
+    registerCheckoutFailed(errorMessage) {
         this.dispatch(errorMessage);
     }
 }

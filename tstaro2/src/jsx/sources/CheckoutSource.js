@@ -1,24 +1,21 @@
 import HttpUtil from '../utils/HttpUtil'
+import Util from '../utils/Util'
 var CheckoutActions = require('../actions/CheckoutActions');﻿
 
+// TODO: ログイン時に指定するDOMAINとログイン情報を渡す
 var CheckoutSource = {
     fetchCheckouts() {
         return {
             remote(state, account, regno) {
-                let url = "/api/checkouts/sudako";
-                let cond = "void_p=false";
-                if (account) {
-                    if (cond)
-                        cond += "&";
-                    cond += "account=" + account;
-                }
-                if (regno) {
-                    if (cond)
-                        cond += "&";
-                    cond += "regno=" + regno;
-                }
-                if (cond)
-                    url += "?" + cond;
+                if (!account)
+                    return new Promise((resolve, reject) => {
+                        resolve(Util.emptyResults());
+                    });
+                var url = HttpUtil.createUrl("/api/checkouts/sudako", {
+                    "void_p": "false",
+                    "account": account,
+                    "regno": regno
+                });
                 return new Promise((resolve, reject) => HttpUtil.get(url, resolve, reject));
             },
             local(state, account, regno) {
@@ -33,74 +30,79 @@ var CheckoutSource = {
     fetchCurrentUser() {
         return {
             remote(state, account) {
-                let url = "/api/users/sudako";
-                let cond = "";
-                if (account) {
-                    if (cond)
-                        cond += "&";
-                    cond += "account=" + account;
-                }
-                if (cond)
-                    url += "?" + cond;
+                if (!account)
+                    return new Promise((resolve, reject) => {
+                        resolve(null);
+                    });
+                var url = HttpUtil.createUrl("/api/users/sudako", {
+                    "account": account
+                });
                 return new Promise((resolve, reject) => HttpUtil.firstOrDefault(url, resolve, reject));
             },
             local(state, account) {
                 return null;
             },
-            success: CheckoutActions.updateCurrentUsers,
-            error: CheckoutActions.currentUsersFailed,
-            loading: CheckoutActions.fetchCurrentUsers
+            success: CheckoutActions.updateCurrentUser,
+            error: CheckoutActions.currentUserFailed,
+            loading: CheckoutActions.fetchCurrentUser
         }
     },
 
     fetchCurrentBook() {
         return {
             remote(state, regno) {
-                let url = "/api/books/sudako";
-                let cond = "";
-                if (regno) {
-                    if (cond)
-                        cond += "&";
-                    cond += "regno=" + regno;
-                }
-                if (cond)
-                    url += "?" + cond;
+                if (!regno)
+                    return new Promise((resolve, reject) => {
+                        resolve(null);
+                    });
+                var url = HttpUtil.createUrl("/api/books/sudako", {
+                    "regno": regno
+                });
                 return new Promise((resolve, reject) => HttpUtil.firstOrDefault(url, resolve, reject));
             },
             local(state, regno) {
                 return null;
             },
-            success: CheckoutActions.updateCurrentBooks,
-            error: CheckoutActions.currentBooksFailed,
-            loading: CheckoutActions.fetchCurrentBooks
+            success: CheckoutActions.updateCurrentBook,
+            error: CheckoutActions.currentBookFailed,
+            loading: CheckoutActions.fetchCurrentBook
         }
     },
 
     fetchBookCheckout() {
         return {
-            remote(state, account, regno) {
-                let url = "/api/checkouts/sudako";
-                let cond = "void_p=false";
-                if (account) {
-                    if (cond)
-                        cond += "&";
-                    cond += "account=!" + account;
-                }
-                if (regno) {
-                    if (cond)
-                        cond += "&";
-                    cond += "regno=" + regno;
-                }
-                if (cond)
-                    url += "?" + cond;
+            remote(state, regno) {
+                if (!regno)
+                    return new Promise((resolve, reject) => {
+                        resolve(null);
+                    });
+                var url = HttpUtil.createUrl("/api/checkouts/sudako", {
+                    "void_p": "false",
+                    "regno": regno
+                });
                 return new Promise((resolve, reject) => HttpUtil.firstOrDefault(url, resolve, reject));
             },
-            local(state, account, regno) {
+            local(state, regno) {
                 return null;
             },
-            success: CheckoutActions.updateBookCheckouts,
-            error: CheckoutActions.bookCheckoutsFailed,
-            loading: CheckoutActions.fetchBookCheckouts
+            success: CheckoutActions.updateBookCheckout,
+            error: CheckoutActions.bookCheckoutFailed,
+            loading: CheckoutActions.fetchBookCheckout
+        }
+    },
+
+    registerCheckout() {
+        return {
+            remote(state, data) {
+                var url = "/api/checkouts/sudako";
+                return new Promise((resolve, reject) => HttpUtil.post(url, data, resolve, reject));
+            },
+            local(state, data) {
+                return null;
+            },
+            success: CheckoutActions.completeRegisterCheckout,
+            error: CheckoutActions.registerCheckoutFailed,
+            loading: CheckoutActions.registerCheckout
         }
     }
 }

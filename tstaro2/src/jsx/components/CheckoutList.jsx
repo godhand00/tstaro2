@@ -17,11 +17,18 @@ export default class CheckoutList {
                 />
             );
         });
+        var pageCount = parseInt((this.props.checkouts.totalCount + 25) / 25);
+        var pagenation = Array.from(new Array(pageCount), (x, i) => i + 1)
+            .map((page) => {
+                return (
+                    <li><a href="#">{page}</a></li>
+                );
+            });
         return (
 			<div>
 				<table className="table table-striped table-bordered table-condensed table-hover">
 					<thead>
-						<tr><th></th><th>著者</th><th>タイトル</th><th>貸出日</th></tr>
+						<tr><th></th><th>タイトル</th><th>著者</th><th>貸出日</th></tr>
 					</thead>
 					<tbody>
 						{checkoutNodes}
@@ -34,11 +41,7 @@ export default class CheckoutList {
                         <span aria-hidden="true">&laquo;</span>
                       </a>
                     </li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
+                    {pagenation}
                     <li>
                       <a href="#" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>

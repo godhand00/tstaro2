@@ -4,17 +4,24 @@ export default class CheckoutForm {
     render() {
         var userName = "";
         var bookName = "";
-        if (this.props.curretUser != null)
+        if (this.props.currentUser)
             userName = this.props.currentUser.name;
-        if (this.props.currentBook != null)
+        if (this.props.currentBook)
             bookName = this.props.currentBook.Title;
-
+        var message = this.getMessage();
+        var cnCheckout = "btn btn-primary btn-block";
+        if (!this.props.checkoutEnabled)
+            cnCheckout += " disabled";
+        var cnCheckin = "btn btn-primary btn-block";
+        if (!this.props.checkinEnabled)
+            cnCheckin += " disabled";
         return (
 			<div className="container">
 				<div className="row">
 					<div className="col-md-2">借りる人の番号</div>
 					<div className="col-md-4"><input type="text" placeholder="ユーザNo" className="form-control" ref="account"
-                        onKeyUp={this.handleKeyUp.bind(this)} /></div>
+                        onKeyUp={this.handleKeyUp.bind(this)}
+                        onBlur={this.handleBlur.bind(this)} /></div>
 					<div className="col-md-6 panel panel-default">
                         <div className="panel-body">{userName}</div>
                     </div>
@@ -22,22 +29,22 @@ export default class CheckoutForm {
 				<div className="row">
 					<div className="col-md-2">本の番号</div>
 					<div className="col-md-4"><input type="text" placeholder="登録No" className="form-control" ref="regno"
-                        onKeyUp={this.handleKeyUp.bind(this)} /></div>
+                        onKeyUp={this.handleKeyUp.bind(this)}
+                        onBlur={this.handleBlur.bind(this)} /></div>
 					<div className="col-md-6 panel panel-default">
                         <div className="panel-body">{bookName}</div>
                     </div>
 				</div>
 				<div className="row">
 					<div className="col-md-8 panel panel-default">
-                        <div className="panel-body">
-                        </div>
+                        <div className="panel-body">{message}</div>
                     </div>
 					<div className="col-md-2">
-                        <button type="submit" className="btn btn-primary btn-block" ref="checkout"
+                        <button type="submit" className={cnCheckout} ref="checkout"
                             onClick={this.handleCheckoutSubmit.bind(this)}>貸出</button>
                     </div>
 					<div className="col-md-2">
-					    <button type="submit" className="btn btn-primary btn-block" ref="checkin"
+					    <button type="submit" className={cnCheckin} ref="checkin"
                             onClick={this.handleCheckinSubmit.bind(this)}>返却</button>
                     </div>
 				</div>
@@ -45,28 +52,73 @@ export default class CheckoutForm {
         );
     }
 
-    handleKeyUp(e) {
-        if (e.which == 13)
-        {
-            var account = React.findDOMNode(this.refs.account).value.trim();
-            var regno = React.findDOMNode(this.refs.regno).value.trim();
-            if (account)
-                CheckoutStore.fetchCurrentUser(account);
-            if (regno)
-                CheckoutStore.fetchCurrentBook(regno);
+    componentDidMount() {
+        this.setFocus();
+    }
 
-            if (account)
-                CheckoutStore.fetchCheckouts(account, regno);
-            if (account && regno)
-                CheckoutStore.fetchBookCheckout(account, regno);
+    componentDidUpdate(prevProps, prevStatus) {
+        this.setFocus();
+    }
+
+    setFocus() {
+        if (this.props.checkoutEnabled)
+            React.findDOMNode(this.refs.checkout).focus();
+        else if (this.props.checkinEnabled)
+            React.findDOMNode(this.refs.checkin).focus();
+        else {
+            var account = React.findDOMNode(this.refs.account).value;
+            var regno = React.findDOMNode(this.refs.regno).value;
+            if (!account)
+                React.findDOMNode(this.refs.account).focus();
+            else if (!regno)
+                React.findDOMNode(this.refs.regno).focus();
         }
     }
 
+    getMessage() {
+        var message = "";
+        if (this.props.checkoutEnabled) {
+            message = "貸出できます";
+        } else if (this.props.checkinEnabled) {
+            message = "返却できます";
+        } else if (this.props.bookCheckout && this.props.currentUser) {
+            if (this.props.bookCheckout.account != this.props.currentUser.account)
+                message = this.props.bookCheckout.name + "さんが借りています";
+        }
+        return message;
+    }
+
+    handleKeyUp(e) {
+        if (e.which == 13)
+            this.handleInputChange();
+    }
+
+    handleBlur(e) {
+        //このハンドラ有効にするとキー操作によるフォーカス移動がままならないのでやめた
+        //this.handleInputChange();
+    }
+
+    handleInputChange() {
+        var account = React.findDOMNode(this.refs.account).value;
+        var regno = React.findDOMNode(this.refs.regno).value;
+
+        CheckoutStore.fetchCurrentUser(account);
+        CheckoutStore.fetchCurrentBook(regno);
+        CheckoutStore.fetchCheckouts(account, regno);
+        CheckoutStore.fetchBookCheckout(regno);
+    }
+
     handleCheckoutSubmit(e) {
-        alert("貸出");
+        if (this.props.checkoutEnabled) {
+            alert("貸出");
+            CheckoutStore.registerCheckout(account, regno);
+        }
     }
 
     handleCheckinSubmit(e) {
-        alert("返却");
+        if (this.props.checkinEnabled) {
+            alert("返却");
+            CheckoutStore.registerCheckin(account, regno);
+        }
     }
 }

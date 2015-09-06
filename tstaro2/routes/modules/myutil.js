@@ -123,7 +123,8 @@ router.upd = function (colname, req, res) {
                 collection.save(req.body, { safe: true }, function (err, doc) {
                     db.close()
                     if (!err)
-                        res.send(req.body)
+                        //res.send(req.body)
+                        res.send(doc)
                     else
                         res.status(500).send(err)
                 })

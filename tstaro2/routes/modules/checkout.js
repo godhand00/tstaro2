@@ -23,12 +23,8 @@ router.getcheckouts = function (req, res) {
         $and.push({ $or: wcond })
     if (req.query.regno)
         $and.push({ regno: req.query.regno })
-    if (req.query.account) {
-        if (req.query.account.charAt(0) == '!')
-            $and.push({ account: { $ne: req.query.account.substring(1) } })
-        else
-            $and.push({ account: req.query.account })
-    }
+    if (req.query.account)
+        $and.push({ account: req.query.account })
     if (req.query.checkin === false)
         $and.push({ "checkin_date": null })
     else if (req.query.checkin === true)

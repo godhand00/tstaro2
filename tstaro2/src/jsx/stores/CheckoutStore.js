@@ -12,6 +12,8 @@ class CheckoutStore {
         this.currentBook = null;                // 入力された本
         this.bookCheckout = null;               // 入力された本の貸出情報
         this.errorMessage = null;
+        this.checkinEnabled = false;            // 返却OK
+        this.checkoutEnabled = false;           // 貸出OK
 
         this.bindListeners({
             handleUpdateCheckouts: CheckoutActions.updateCheckouts,
@@ -29,13 +31,27 @@ class CheckoutStore {
             handleUpdateBookCheckout: CheckoutActions.updateBookCheckout,
             handleFetchBookCheckout: CheckoutActions.fetchBookCheckout,
             handleBookCheckoutFailed: CheckoutActions.bookCheckoutFailed,
+
+            handleCompleteRegisterCheckout: CheckoutActions.completeRegisterCheckout,
+            handleRegisterCheckout: CheckoutActions.registerCheckout,
+            handleRegisterCheckoutFailed: CheckoutActions.registerCheckoutFailed
         });
 
-        // this.exportPublicMethods({
-        //     getCheckout: this.getCheckout
-        // });
-
         this.exportAsync(CheckoutSource);
+    }
+
+    judgeEnabled() {
+        var ie = false;
+        var oe = false;
+        if (this.currentUser && this.currentBook) {
+            if (this.bookCheckout) {
+                if (this.bookCheckout.account == this.currentUser.account)
+                    ie = true;
+            } else
+                oe = true;
+        }
+        this.checkinEnabled = ie;
+        this.checkoutEnabled = oe;
     }
 
     handleUpdateCheckouts(checkouts) {
@@ -54,6 +70,7 @@ class CheckoutStore {
     handleUpdateCurrentUser(currentUser) {
         this.currentUser = currentUser;
         this.errorMessage = null;
+        this.judgeEnabled();
     }
 
     handleFetchCurrentUser() {
@@ -67,6 +84,7 @@ class CheckoutStore {
     handleUpdateCurrentBook(currentBook) {
         this.currentBook = currentBook;
         this.errorMessage = null;
+        this.judgeEnabled();
     }
 
     handleFetchCurrentBook() {
@@ -80,6 +98,7 @@ class CheckoutStore {
     handleUpdateBookCheckout(bookCheckout) {
         this.bookCheckout = bookCheckout;
         this.errorMessage = null;
+        this.judgeEnabled();
     }
 
     handleFetchBookCheckout() {
@@ -87,6 +106,17 @@ class CheckoutStore {
     }
 
     handleBookCheckoutFailed(errorMessage) {
+        this.errorMessage = errorMessage;
+    }
+
+    handleCompleteRegisterCheckout(message) {
+        this.errorMessage = message;
+    }
+
+    handleRegisterCheckout() {
+    }
+
+    handleRegisterCheckoutFailed(errorMessage) {
         this.errorMessage = errorMessage;
     }
 }

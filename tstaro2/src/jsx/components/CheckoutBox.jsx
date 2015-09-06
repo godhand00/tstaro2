@@ -21,8 +21,6 @@ export default class CheckoutBox {
                 <h1>貸出・返却</h1>
                 <AltContainer store={CheckoutStore}>
                     <CheckoutForm />
-                </AltContainer>
-				<AltContainer store={CheckoutStore}>
 					<CheckoutList />
 				</AltContainer>
             </div>
