@@ -87,7 +87,7 @@ router.get = function (colname, query, req, res) {
                 collection.find(query).count(function (err, count) {
                     collection.find(query, { skip: start, limit: limit }).sort(sorter).toArray(function (err, results) {
                         db.close()
-                        res.send({ results: results, totalCount: count })
+                        res.send({ results: results, totalCount: count, start: start })
                     })
                 })
             })

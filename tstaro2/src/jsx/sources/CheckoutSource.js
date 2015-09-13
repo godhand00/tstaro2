@@ -6,7 +6,7 @@ var CheckoutActions = require('../actions/CheckoutActions');﻿
 var CheckoutSource = {
     fetchCheckouts() {
         return {
-            remote(state, account, regno) {
+            remote(state, account, regno, start) {
                 if (!account)
                     return new Promise((resolve, reject) => {
                         resolve(Util.emptyResults());
@@ -14,11 +14,12 @@ var CheckoutSource = {
                 var url = HttpUtil.createUrl("/api/checkouts/sudako", {
                     "void_p": "false",
                     "account": account,
-                    "regno": regno
+                    "regno": regno,
+                    "start": start
                 });
                 return new Promise((resolve, reject) => HttpUtil.get(url, resolve, reject));
             },
-            local(state, account, regno) {
+            local(state, account, regno, start) {
                 return null;
             },
             success: CheckoutActions.updateCheckouts,
@@ -103,6 +104,21 @@ var CheckoutSource = {
             success: CheckoutActions.completeRegisterCheckout,
             error: CheckoutActions.registerCheckoutFailed,
             loading: CheckoutActions.registerCheckout
+        }
+    },
+
+    registerCheckin() {
+        return {
+            remote(state, data) {
+                var url = "/api/checkouts/sudako";
+                return new Promise((resolve, reject) => HttpUtil.put(url, data, resolve, reject));
+            },
+            local(state, data) {
+                return null;
+            },
+            success: CheckoutActions.completeRegisterCheckin,
+            error: CheckoutActions.registerCheckinFailed,
+            loading: CheckoutActions.registerCheckin
         }
     }
 }

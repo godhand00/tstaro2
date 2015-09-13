@@ -1,4 +1,6 @@
-var CheckoutStore = require('../stores/CheckoutStore');
+"use strict";
+import Util from '../utils/Util';
+import CheckoutStore from '../stores/CheckoutStore';
 
 export default class CheckoutForm {
     render() {
@@ -20,8 +22,7 @@ export default class CheckoutForm {
 				<div className="row">
 					<div className="col-md-2">借りる人の番号</div>
 					<div className="col-md-4"><input type="text" placeholder="ユーザNo" className="form-control" ref="account"
-                        onKeyUp={this.handleKeyUp.bind(this)}
-                        onBlur={this.handleBlur.bind(this)} /></div>
+                        onKeyUp={this.handleKeyUp.bind(this)} /></div>
 					<div className="col-md-6 panel panel-default">
                         <div className="panel-body">{userName}</div>
                     </div>
@@ -29,8 +30,7 @@ export default class CheckoutForm {
 				<div className="row">
 					<div className="col-md-2">本の番号</div>
 					<div className="col-md-4"><input type="text" placeholder="登録No" className="form-control" ref="regno"
-                        onKeyUp={this.handleKeyUp.bind(this)}
-                        onBlur={this.handleBlur.bind(this)} /></div>
+                        onKeyUp={this.handleKeyUp.bind(this)}/></div>
 					<div className="col-md-6 panel panel-default">
                         <div className="panel-body">{bookName}</div>
                     </div>
@@ -93,11 +93,6 @@ export default class CheckoutForm {
             this.handleInputChange();
     }
 
-    handleBlur(e) {
-        //このハンドラ有効にするとキー操作によるフォーカス移動がままならないのでやめた
-        //this.handleInputChange();
-    }
-
     handleInputChange() {
         var account = React.findDOMNode(this.refs.account).value;
         var regno = React.findDOMNode(this.refs.regno).value;
@@ -110,8 +105,28 @@ export default class CheckoutForm {
 
     handleCheckoutSubmit(e) {
         if (this.props.checkoutEnabled) {
-            alert("貸出");
-            CheckoutStore.registerCheckout(account, regno);
+            var user = this.props.currentUser;
+            var book = this.props.currentBook;
+            var from_date = Util.getToday();
+            var reg_date = Util.getToday();
+            var due_date = Util.getToday();
+            due_date.setDate(from_date.getDate() + 7);
+            CheckoutStore.registerCheckout({
+                "account": user.account,
+                "name": user.name,
+                "grade": user.grade,
+                "class": user.class,
+                "regno": book.regno,
+                "Title": book.Title,
+                "Author": book.Author,
+                "from_date": from_date,
+                "due_date": due_date,
+                "checkin_date": null,
+                "comment": "",
+                "regdate": reg_date,
+                "upddate": reg_date,
+                "void_p": false
+            });
         }
     }
 

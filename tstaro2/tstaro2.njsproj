@@ -54,11 +54,14 @@
     <Compile Include="routes\modules\stat.js" />
     <Compile Include="routes\modules\user.js" />
     <Compile Include="src\jsx\actions\CheckoutActions.js" />
+    <Compile Include="src\jsx\actions\LoginActions.js" />
     <Compile Include="src\jsx\alt.js" />
     <Compile Include="src\jsx\app.jsx" />
     <Compile Include="src\jsx\components\TopMenu.jsx" />
+    <Compile Include="src\jsx\sources\LoginSource.js" />
     <Compile Include="src\jsx\stores\CheckoutStore.js" />
     <Compile Include="src\jsx\sources\CheckoutSource.js" />
+    <Compile Include="src\jsx\stores\LoginStore.js" />
     <Compile Include="src\jsx\utils\HttpUtil.js" />
     <Compile Include="src\jsx\utils\Util.js" />
     <Content Include="data\CODE39.ttf.zip" />
@@ -69,9 +72,11 @@
     <Content Include="package.json" />
     <Content Include="src\jsx\components\Checkout.jsx" />
     <Content Include="src\jsx\components\CheckoutBox.jsx" />
+    <Content Include="src\jsx\components\CheckoutDialog.jsx" />
     <Content Include="src\jsx\components\CheckoutForm.jsx" />
     <Content Include="src\jsx\components\CheckoutList.jsx" />
     <Content Include="src\jsx\components\Footer.jsx" />
+    <Content Include="src\jsx\components\LoginForm.jsx" />
     <Content Include="src\jsx\components\MainMenu.jsx" />
     <Content Include="src\styl\style.styl" />
     <Content Include="python_modules\makexls.py" />

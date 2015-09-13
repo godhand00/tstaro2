@@ -9,8 +9,11 @@
             } else
                 reject(new Error(xhr.statusText));
         };
-        xhr.onerror = () => reject(new Error(xhr.statusText));
-        xhr.send(null);
+        xhr.onerror = () => {
+            reject(new Error(xhr.statusText));
+        };
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhr.send();
     }
 
     static firstOrDefault(url, resolve, reject) {
@@ -26,8 +29,11 @@
             } else
                 reject(new Error(xhr.statusText));
         };
-        xhr.onerror = () => reject(new Error(xhr.statusText));
-        xhr.send(null);
+        xhr.onerror = () => {
+            reject(new Error(xhr.statusText));
+        };
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhr.send();
     }
 
     static post(url, data, resolve, reject) {
@@ -39,7 +45,9 @@
             else
                 reject(new Error(xhr.statusText));
         };
-        xhr.onerror = () => reject(new Error(xhr.statusText));
+        xhr.onerror = () => {
+            reject(new Error(xhr.statusText));
+        };
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhr.send(JSON.stringify(data));
     }
@@ -53,7 +61,9 @@
             else
                 reject(new Error(xhr.statusText));
         };
-        xhr.onerror = () => reject(new Error(xhr.statusText));
+        xhr.onerror = () => {
+            reject(new Error(xhr.statusText));
+        };
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhr.send(JSON.stringify(data));
     }
@@ -67,7 +77,9 @@
             else
                 reject(new Error(xhr.statusText));
         };
-        xhr.onerror = () => reject(new Error(xhr.statusText));
+        xhr.onerror = () => {
+            reject(new Error(xhr.statusText));
+        };
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhr.send(JSON.stringify(data));
     }

@@ -1,4 +1,5 @@
 import Checkout from './Checkout.jsx'
+import CheckoutStore from '../stores/CheckoutStore';
 
 export default class CheckoutList {
     render() {
@@ -21,7 +22,9 @@ export default class CheckoutList {
         var pagenation = Array.from(new Array(pageCount), (x, i) => i + 1)
             .map((page) => {
                 return (
-                    <li><a href="#">{page}</a></li>
+                    <li><a href="#" onClick={
+                            this.handlePageClick.bind(this, page)
+                        }>{page}</a></li>
                 );
             });
         return (
@@ -51,5 +54,14 @@ export default class CheckoutList {
                 </nav>
             </div>
         );
+    }
+    handlePageClick(page) {
+        var account = null;
+        if (this.props.currentUser)
+            account = this.props.currentUser.account;
+        var regno = null;
+        if (this.props.currentBook)
+            regno = this.props.currentBook.regno;
+        CheckoutStore.fetchCheckouts(account, regno, (page - 1) * 25);
     }
 }

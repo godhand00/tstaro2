@@ -34,7 +34,11 @@ class CheckoutStore {
 
             handleCompleteRegisterCheckout: CheckoutActions.completeRegisterCheckout,
             handleRegisterCheckout: CheckoutActions.registerCheckout,
-            handleRegisterCheckoutFailed: CheckoutActions.registerCheckoutFailed
+            handleRegisterCheckoutFailed: CheckoutActions.registerCheckoutFailed,
+
+            handleCompleteRegisterCheckin: CheckoutActions.completeRegisterCheckin,
+            handleRegisterCheckin: CheckoutActions.registerCheckin,
+            handleRegisterCheckinFailed: CheckoutActions.registerCheckinFailed
         });
 
         this.exportAsync(CheckoutSource);
@@ -95,6 +99,7 @@ class CheckoutStore {
         this.errorMessage = errorMessage;
     }
 
+    // BookCheckout
     handleUpdateBookCheckout(bookCheckout) {
         this.bookCheckout = bookCheckout;
         this.errorMessage = null;
@@ -109,6 +114,7 @@ class CheckoutStore {
         this.errorMessage = errorMessage;
     }
 
+    // registerCheckout
     handleCompleteRegisterCheckout(message) {
         this.errorMessage = message;
     }
@@ -117,6 +123,18 @@ class CheckoutStore {
     }
 
     handleRegisterCheckoutFailed(errorMessage) {
+        this.errorMessage = errorMessage;
+    }
+
+    // registerCheckin
+    handleCompleteRegisterCheckin(message) {
+        this.errorMessage = message;
+    }
+
+    handleRegisterCheckin() {
+    }
+
+    handleRegisterCheckinFailed(errorMessage) {
         this.errorMessage = errorMessage;
     }
 }

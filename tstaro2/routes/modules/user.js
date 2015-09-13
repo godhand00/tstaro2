@@ -24,7 +24,7 @@ router.login = function (req, res) {
             db.collection('users', function (err, collection) {
                 collection.find({ account: req.body.account, password: req.body.password, void_p: false }).toArray(function (err, results) {
                     db.close()
-                    console.log('login: req.body.account' + req.body.account)
+                    console.log('login: req.body.account=' + req.body.account)
                     if (results.length > 0) {
                         delete results[0].password
                         res.send({ auth: true, user: results[0] })

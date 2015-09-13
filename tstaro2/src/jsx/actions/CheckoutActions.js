@@ -65,6 +65,19 @@ class CheckoutActions {
     registerCheckoutFailed(errorMessage) {
         this.dispatch(errorMessage);
     }
+
+    // registerCheckin
+    completeRegisterCheckin(message) {
+        this.dispatch(message);
+    }
+
+    registerCheckin() {
+        this.dispatch();
+    }
+
+    registerCheckinFailed(errorMessage) {
+        this.dispatch(errorMessage);
+    }
 }
 
 module.exports = alt.createActions(CheckoutActions);

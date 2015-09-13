@@ -1,4 +1,6 @@
 import CheckoutBox from './CheckoutBox.jsx'
+import LoginForm from './LoginForm.jsx'
+import LoginStore from '../stores/LoginStore'
 
 export default class MainMenu {
     render() {
@@ -9,7 +11,7 @@ export default class MainMenu {
                 </div>
                 <div className="list-group">
                     <a href="#" className="list-group-item" onClick={
-                        () => React.render(<CheckoutBox />,document.getElementById('content'))
+                        this.handleOnClick.bind(this)
                     } active>貸出・返却</a>
                     <a href="#" className="list-group-item">図書館の本を探す</a>
                     <a href="#" className="list-group-item">Amazonで本を探す</a>
@@ -25,5 +27,8 @@ export default class MainMenu {
                 </div>
             </div>
         );
+    }
+    handleOnClick(e) {
+        React.render(<CheckoutBox />, document.getElementById('content'));
     }
 }

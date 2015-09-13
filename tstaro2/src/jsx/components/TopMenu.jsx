@@ -1,4 +1,6 @@
 import MainMenu from './MainMenu.jsx'
+var AltContainer = require('alt/AltContainer');
+var LoginStore = require('../stores/LoginStore');
 
 export default class TopMenu {
     render() {
@@ -6,7 +8,10 @@ export default class TopMenu {
                     <div className="container-fluid">
                         <div className="navbar-header">
                             <a className="navbar-brand" href="#" onClick={
-                                () => React.render(<MainMenu />, document.getElementById('content'))
+                                () => React.render(
+                                    <MainMenu />,
+                                    document.getElementById('content')
+                                )
                             }>
                                 <img alt="Brand" src="/images/favicon.png"/>
                             </a>
