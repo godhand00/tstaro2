@@ -1,7 +1,8 @@
 import Checkout from './Checkout.jsx'
 import CheckoutStore from '../stores/CheckoutStore';
+import Pagination from './Pagination.jsx';
 
-export default class CheckoutList {
+export default class CheckoutList extends React.Component {
     render() {
         if (this.props.errorMessage) {
 			return (
@@ -11,7 +12,7 @@ export default class CheckoutList {
         var checkoutNodes = this.props.checkouts.results.map((checkout, index) => {
             return (
                 <Checkout
-                    index={index + 1}
+                    index={this.props.checkouts.start + 1 + index}
                     author={checkout.Author}
                     title={checkout.Title}
                     from_date={checkout.from_date}
@@ -19,14 +20,7 @@ export default class CheckoutList {
             );
         });
         var pageCount = parseInt((this.props.checkouts.totalCount + 25) / 25);
-        var pagenation = Array.from(new Array(pageCount), (x, i) => i + 1)
-            .map((page) => {
-                return (
-                    <li><a href="#" onClick={
-                            this.handlePageClick.bind(this, page)
-                        }>{page}</a></li>
-                );
-            });
+        var currentPage = parseInt((this.props.checkouts.start + 25) / 25);
         return (
 			<div>
 				<table className="table table-striped table-bordered table-condensed table-hover">
@@ -38,19 +32,7 @@ export default class CheckoutList {
 					</tbody>
 				</table>
                 <nav>
-                  <ul className="pagination">
-                    <li>
-                      <a href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                      </a>
-                    </li>
-                    {pagenation}
-                    <li>
-                      <a href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                      </a>
-                    </li>
-                  </ul>
+                    <Pagination pageCount={pageCount} currentPage={currentPage} handlePageClick={this.handlePageClick.bind(this)} />
                 </nav>
             </div>
         );

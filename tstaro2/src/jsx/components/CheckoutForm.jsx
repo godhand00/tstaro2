@@ -2,7 +2,7 @@
 import Util from '../utils/Util';
 import CheckoutStore from '../stores/CheckoutStore';
 
-export default class CheckoutForm {
+export default class CheckoutForm extends React.Component {
     render() {
         var userName = "";
         var bookName = "";

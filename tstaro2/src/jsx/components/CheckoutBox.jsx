@@ -3,7 +3,7 @@ import CheckoutForm from './CheckoutForm.jsx'
 ﻿var AltContainer = require('alt/AltContainer');
 var CheckoutStore = require('../stores/CheckoutStore');
 
-export default class CheckoutBox {
+export default class CheckoutBox extends React.Component {
     componentDidMount() {
         //CheckoutStore.fetchCheckouts();
     }

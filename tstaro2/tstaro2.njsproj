@@ -78,6 +78,7 @@
     <Content Include="src\jsx\components\Footer.jsx" />
     <Content Include="src\jsx\components\LoginForm.jsx" />
     <Content Include="src\jsx\components\MainMenu.jsx" />
+    <Content Include="src\jsx\components\Pagination.jsx" />
     <Content Include="src\styl\style.styl" />
     <Content Include="python_modules\makexls.py" />
     <Content Include="python_modules\site-packages\pyExcelerator\antlr.py" />

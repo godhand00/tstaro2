@@ -2,7 +2,7 @@ import CheckoutBox from './CheckoutBox.jsx'
 import LoginForm from './LoginForm.jsx'
 import LoginStore from '../stores/LoginStore'
 
-export default class MainMenu {
+export default class MainMenu extends React.Component {
     render() {
         return (
             <div>

@@ -2,7 +2,7 @@
 // import Util from '../utils/Util';
 import LoginStore from '../stores/LoginStore';
 
-export default class LoginForm {
+export default class LoginForm extends React.Component {
     render() {
         return (
             <div className="container">
