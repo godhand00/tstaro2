@@ -10,7 +10,9 @@ React.render(
 );
 
 React.render(
-    <MainMenu />,
+    <AltContainer store={LoginStore}>
+        <MainMenu />
+    </AltContainer>,
     document.getElementById('content')
 );
 

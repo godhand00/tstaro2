@@ -3,6 +3,9 @@ import CheckoutStore from '../stores/CheckoutStore';
 import Pagination from './Pagination.jsx';
 
 export default class CheckoutList extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
         if (this.props.errorMessage) {
 			return (

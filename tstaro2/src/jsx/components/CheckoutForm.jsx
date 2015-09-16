@@ -3,6 +3,9 @@ import Util from '../utils/Util';
 import CheckoutStore from '../stores/CheckoutStore';
 
 export default class CheckoutForm extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
         var userName = "";
         var bookName = "";
@@ -97,9 +100,9 @@ export default class CheckoutForm extends React.Component {
         var account = React.findDOMNode(this.refs.account).value;
         var regno = React.findDOMNode(this.refs.regno).value;
 
+        CheckoutStore.fetchCheckouts(account, regno);
         CheckoutStore.fetchCurrentUser(account);
         CheckoutStore.fetchCurrentBook(regno);
-        CheckoutStore.fetchCheckouts(account, regno);
         CheckoutStore.fetchBookCheckout(regno);
     }
 

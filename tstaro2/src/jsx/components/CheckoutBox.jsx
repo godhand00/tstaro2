@@ -4,6 +4,9 @@ import CheckoutForm from './CheckoutForm.jsx'
 var CheckoutStore = require('../stores/CheckoutStore');
 
 export default class CheckoutBox extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     componentDidMount() {
         //CheckoutStore.fetchCheckouts();
     }

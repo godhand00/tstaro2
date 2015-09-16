@@ -1,6 +1,9 @@
 import Util from '../utils/Util'
 
 export default class Checkout extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
         return (
 			<tr>

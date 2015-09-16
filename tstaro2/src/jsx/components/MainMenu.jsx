@@ -3,7 +3,14 @@ import LoginForm from './LoginForm.jsx'
 import LoginStore from '../stores/LoginStore'
 
 export default class MainMenu extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
+        if (!this.props.loginUser)
+            return (
+                <LoginForm />
+            );
         return (
             <div>
                 <div className="jumbotron">
@@ -28,7 +35,7 @@ export default class MainMenu extends React.Component {
             </div>
         );
     }
-    handleOnClick(e) {
+    handleOnClick() {
         React.render(<CheckoutBox />, document.getElementById('content'));
     }
 }

@@ -3,14 +3,20 @@
 import LoginStore from '../stores/LoginStore';
 
 export default class LoginForm extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
         return (
             <div className="container">
                 <div className="form-signin">
                     <h2 className="form-signin-heading">Please sign in</h2>
-                    <input type="text" ref="account" className="form-control" placeholder="Account" required autofocus />
-                    <input type="password" ref="password" className="form-control" placeholder="Password" required />
-                    <input type="text" ref="domain" className="form-control" placeholder="Domain" required />
+                    <input type="text" ref="account" className="form-control" placeholder="Account" required autofocus
+                        onKeyUp={this.handleKeyUp.bind(this)} />
+                    <input type="password" ref="password" className="form-control" placeholder="Password" required
+                        onKeyUp={this.handleKeyUp.bind(this)} />
+                    <input type="text" ref="domain" className="form-control" placeholder="Domain" required
+                        onKeyUp={this.handleKeyUp.bind(this)} />
                     <div className="checkbox">
                         <label>
                             <input type="checkbox" value="remember-me" /> Remember me
@@ -23,7 +29,12 @@ export default class LoginForm extends React.Component {
         );
     }
 
-    handleSubmit(e) {
+    handleKeyUp(e) {
+        if (e.which == 13)
+            this.handleSubmit();
+    }
+
+    handleSubmit() {
         var account = React.findDOMNode(this.refs.account).value;
         var password = React.findDOMNode(this.refs.password).value;
         var domain = React.findDOMNode(this.refs.domain).value;

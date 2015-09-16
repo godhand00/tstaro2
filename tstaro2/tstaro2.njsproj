@@ -70,6 +70,7 @@
     <Content Include="data\sudako\tanahyoji.doc" />
     <Content Include="data\tags.json" />
     <Content Include="package.json" />
+    <Content Include="src\jsx\components\CheckinDialog.jsx" />
     <Content Include="src\jsx\components\Checkout.jsx" />
     <Content Include="src\jsx\components\CheckoutBox.jsx" />
     <Content Include="src\jsx\components\CheckoutDialog.jsx" />
